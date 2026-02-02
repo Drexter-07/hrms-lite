@@ -1,6 +1,7 @@
-fastapi==0.109.2
-uvicorn[standard]==0.27.1
-sqlalchemy[asyncio]==2.0.25
-asyncpg==0.29.0
-pydantic[email-validator]==2.6.1
-python-dotenv==1.0.1
+fastapi
+uvicorn[standard]
+sqlalchemy[asyncio]
+asyncpg
+pydantic[email-validator]
+python-dotenv
+email-validator
