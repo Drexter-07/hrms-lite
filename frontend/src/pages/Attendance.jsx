@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 import { employeesApi, attendanceApi } from '../services/api'
 
-// UPDATED: Use locale-aware date string to get accurate local "Today"
+
 const today = new Date().toLocaleDateString('en-CA') 
 
 export default function Attendance() {
@@ -45,7 +45,7 @@ export default function Attendance() {
   const handleMark = (e) => {
     e.preventDefault()
 
-    // UPDATED: Logic check to prevent future dates
+
     if (markDate > today) {
         setError("You cannot mark attendance for a future date.")
         return
@@ -117,7 +117,7 @@ export default function Attendance() {
               <input
                 type="date"
                 value={markDate}
-                max={today} // UPDATED: Blocks future dates in the calendar picker
+                max={today} 
                 onChange={(e) => setMarkDate(e.target.value)}
                 className="mt-1 rounded-lg border border-slate-300 px-3 py-2 text-slate-800 focus:border-slate-500 focus:outline-none focus:ring-1 focus:ring-slate-500"
                 required
