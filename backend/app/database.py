@@ -1,15 +1,15 @@
 """Async database configuration and session management."""
 import os
+from pathlib import Path
 from sqlalchemy.ext.asyncio import AsyncSession, create_async_engine, async_sessionmaker
 from sqlalchemy.orm import declarative_base
 from dotenv import load_dotenv
 
-load_dotenv()
+env_path = Path(__file__).resolve().parent.parent / ".env"
+load_dotenv(dotenv_path=env_path)
 
-DATABASE_URL = os.getenv(
-    "DATABASE_URL",
-    "postgresql+asyncpg://postgres:12345@localhost:5432/hrms_lite",
-)
+DATABASE_URL = os.getenv("DATABASE_URL")
+
 
 engine = create_async_engine(
     DATABASE_URL,
