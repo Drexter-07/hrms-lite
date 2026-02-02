@@ -44,8 +44,12 @@ async def mark_attendance(
         date=payload.date,
         status=status_enum,
     )
+    
     db.add(record)
-    await db.flush()
+    
+    await db.commit() 
+
+    
     await db.refresh(record)
     return record
 
