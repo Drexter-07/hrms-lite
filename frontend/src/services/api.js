@@ -26,5 +26,8 @@ export const attendanceApi = {
 
 // --- Dashboard ---
 export const dashboardApi = {
-  stats: () => api.get('/dashboard/stats'),
+  stats: () => {
+    const today = new Date().toLocaleDateString('en-CA');
+    return api.get(`/dashboard/stats?query_date=${today}`);
+  },
 };
