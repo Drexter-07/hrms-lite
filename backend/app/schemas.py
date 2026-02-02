@@ -20,7 +20,6 @@ class EmployeeBase(BaseModel):
     @field_validator("email")
     @classmethod
     def validate_email_format(cls, v: str) -> str:
-        # RFC 5322 simplified regex for common emails
         pattern = r"^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$"
         if not re.match(pattern, v):
             raise ValueError("Invalid email format")

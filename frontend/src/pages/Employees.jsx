@@ -51,7 +51,7 @@ export default function Employees() {
     setFormErrors({})
     employeesApi
       .create(form)
-      .then((response) => {  // 1. Capture the response from the backend
+      .then((response) => { 
         setSuccess('Employee added successfully.')
         setModalOpen(false)
         setForm({ full_name: '', email: '', department: '' })
@@ -60,7 +60,6 @@ export default function Employees() {
         if (response.data) {
             setList((prevList) => [...prevList, response.data])
         } else {
-            // Fallback if backend doesn't return data: Wait 500ms then fetch
             setTimeout(fetchEmployees, 500) 
         }
       })
